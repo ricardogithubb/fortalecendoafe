@@ -24,23 +24,19 @@ $(document).ready(async function () {
 
     // Função para carregar um vídeo
     function loadVideo(video) {
-        const mainVideo = document.getElementById('mainVideo');
-        mainVideo.src = `videos/${video.id}`;
-        mainVideo.play(); // Adiciona o autoplay
-
-        // document.getElementById('mainVideo').src = `videos/${video.id}`;
+        document.getElementById('mainVideo').src = `videos/${video.id}?autoplay=1`;
         document.getElementById('videoTitle').textContent = video.title;
-        document.getElementById('views').textContent = video.views;
-        document.getElementById('channel').textContent = video.channel;
-        document.getElementById('description').textContent = video.description;
+        // document.getElementById('views').textContent = video.views;
+        // document.getElementById('channel').textContent = video.channel;
+        // document.getElementById('description').textContent = video.description;
     }
 
     // Função para criar os elementos dos vídeos relacionados
     function createRelatedVideos() {
-        console.log(videos);
+
         const container = document.getElementById('relatedVideos');
         container.innerHTML = '';
-        console.log('aqui');
+
         videos.forEach(video => {
             const element = document.createElement('a');
             element.className = 'list-group-item list-group-item-action related-video';
