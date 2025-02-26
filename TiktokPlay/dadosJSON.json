@@ -5,16 +5,16 @@
   "louvores": [
 		{
 			"id": "Video 000001 - Sarah Beatriz - Tu És a Direção.mp4",
-			"title": "Sarah Beatriz - Tu És a Direção",
-			"channel": "Fortalecendo a Fé",
+			"title": "Tu És a Direção",
+			"channel": "Sarah Beatriz",
 			"views": "1.234.567 visualizações",
 			"description": "O famoso hit global de PSY que conquistou o mundo!",
 			"thumbnail": "video1.jpg"
 		},
 		{
 			"id": "Ministério Zoe - Aquieta Minha Alma.mp4",
-			"title": "Ministério Zoe - Aquieta Minha Alma",
-			"channel": "Fortalecendo a Fé",
+			"title": "Aquieta Minha Alma",
+			"channel": "Ministério Zoe",
 			"views": "890.123 visualizações",
 			"description": "O sucesso seguinte de PSY",
 			"thumbnail": "video2.jpg"
@@ -29,8 +29,8 @@
 		},
 		{
 			"id": "Video 000004 - Midian Lima - Jó.mp4",
-			"title": "Midian Lima - Jó",
-			"channel": "Fortalecendo a Fé",
+			"title": "Jó",
+			"channel": "Midian Lima",
 			"views": "2.345.678 visualizações",
 			"description": "Música oficial da Copa do Mundo 2010",
 			"thumbnail": "video4.jpg"
@@ -45,16 +45,16 @@
 		},
 		{
 			"id": "Video 000006 - Isaias Saad - Ousado Amor.mp4",
-			"title": "Isaias Saad - Ousado Amor",
-			"channel": "Fortalecendo a Fé",
+			"title": "Ousado Amor",
+			"channel": "Isaias Saad",
 			"views": "2.345.678 visualizações",
 			"description": "Música oficial da Copa do Mundo 2010",
 			"thumbnail": "video6.jpg"
 		},
 		{
 			"id": "Video 000007 - Valesca Mayssa - Eu Sou Teu Pai.mp4",
-			"title": "Valesca Mayssa - Eu Sou Teu Pai",
-			"channel": "Fortalecendo a Fé",
+			"title": "Eu Sou Teu Pai",
+			"channel": "Valesca Mayssa",
 			"views": "2.345.678 visualizações",
 			"description": "Música oficial da Copa do Mundo 2010",
 			"thumbnail": "video7.jpg"
