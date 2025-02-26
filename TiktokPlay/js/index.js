@@ -24,7 +24,11 @@ $(document).ready(async function () {
 
     // Função para carregar um vídeo
     function loadVideo(video) {
-        document.getElementById('mainVideo').src = `videos/${video.id}`;
+        const mainVideo = document.getElementById('mainVideo');
+        mainVideo.src = `videos/${video.id}`;
+        mainVideo.play(); // Adiciona o autoplay
+
+        // document.getElementById('mainVideo').src = `videos/${video.id}`;
         document.getElementById('videoTitle').textContent = video.title;
         document.getElementById('views').textContent = video.views;
         document.getElementById('channel').textContent = video.channel;
