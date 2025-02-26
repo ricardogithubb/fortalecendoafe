@@ -42,7 +42,7 @@ $(document).ready(async function () {
             element.className = 'list-group-item list-group-item-action related-video';
             element.innerHTML = `
                 <div class="d-flex">
-                    <img src="${video.thumbnail}" style="width: 120px; height: 68px;">
+                    <img src="imagem/${video.thumbnail}" style="width: 120px; height: 68px;">
                     <div class="ms-3">
                         <h6>${video.title}</h6>
                         <small>${video.channel}</small><br>
