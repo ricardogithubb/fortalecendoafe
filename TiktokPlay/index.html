@@ -26,12 +26,12 @@
             height: 100%;
         }
 
-        .h-40 {
-            height: 40%;
+        .h-35 {
+            height: 35%;
         }
 
-        .h-60 {
-            height: 60%;
+        .h-65 {
+            height: 65%;
         }
 
         .related-video {
@@ -49,23 +49,23 @@
         }
     </style>
 </head>
-<body class="d-flex flex-column h-100 p-1">
+<body class="d-flex flex-column h-100 p-2 bg-black">
 
-    <div class="m-0 h-100">
-        <div class="h-40 m-0">
+    <div class="m-0 h-100 p-1 border border-dark">
+        <div class="h-35 m-0">
 
             <div class="col-lg-8 mb-1">
                <div class="video-container mt-0">
-                   <iframe id="mainVideo" src="https://www.youtube.com/embed/9bZkp7q19f0" 
+                   <iframe id="mainVideo" src="" 
                            frameborder="0" allowfullscreen></iframe>
                </div>
-               <h4 class="mt-0" id="videoTitle">Gangnam Style</h4>
+               <h5 class="mt-0 text-white" id="videoTitle">Selecione um video</h5>
            </div> 
 
         </div>
-        <div class="h-60 overflow-auto m-0">
+        <div class="h-65 overflow-auto m-0 rounded pb-2">
 
-            <div class="col-lg-4">
+            <div class="col-lg-4 h-100">
                 <div id="relatedVideos" class="list-group"> 
                      Os vídeos relacionados serão gerados aqui via JavaScript
                 </div>
