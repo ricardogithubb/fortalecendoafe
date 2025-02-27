@@ -23,7 +23,7 @@
 			"id": "Video 000003 - É Ele.mp4",
 			"title": "É Ele",
 			"channel": "Fortalecendo a Fé",
-			"views": "2.345.678 visualizações",
+			"views": "**** visualizações",
 			"description": "Música oficial da Copa do Mundo 2010",
 			"thumbnail": "video3.jpg"
 		},
@@ -31,7 +31,7 @@
 			"id": "Video 000004 - Midian Lima - Jó.mp4",
 			"title": "Jó",
 			"channel": "Midian Lima",
-			"views": "2.345.678 visualizações",
+			"views": "**** visualizações",
 			"description": "Música oficial da Copa do Mundo 2010",
 			"thumbnail": "video4.jpg"
 		},
@@ -39,7 +39,7 @@
 			"id": "Video 000005 - A Casa É Sua.mp4",
 			"title": "A Casa É Sua",
 			"channel": "Fortalecendo a Fé",
-			"views": "2.345.678 visualizações",
+			"views": "**** visualizações",
 			"description": "Música oficial da Copa do Mundo 2010",
 			"thumbnail": "video5.jpg"
 		},
@@ -47,7 +47,7 @@
 			"id": "Video 000006 - Isaias Saad - Ousado Amor.mp4",
 			"title": "Ousado Amor",
 			"channel": "Isaias Saad",
-			"views": "2.345.678 visualizações",
+			"views": "**** visualizações",
 			"description": "Música oficial da Copa do Mundo 2010",
 			"thumbnail": "video6.jpg"
 		},
@@ -55,9 +55,113 @@
 			"id": "Video 000007 - Valesca Mayssa - Eu Sou Teu Pai.mp4",
 			"title": "Eu Sou Teu Pai",
 			"channel": "Valesca Mayssa",
-			"views": "2.345.678 visualizações",
+			"views": "**** visualizações",
 			"description": "Música oficial da Copa do Mundo 2010",
 			"thumbnail": "video7.jpg"
+		},
+		{
+			"id": "Video 000008 - Yasmin Yanni _ De Repente de Deus.mp4",
+			"title": "De Repente de Deus",
+			"channel": "Yasmin Yanni",
+			"views": "**** visualizações",
+			"description": "Música oficial da Copa do Mundo 2010",
+			"thumbnail": "video8.png"
+		},
+		{
+			"id": "Video 000009 - Vitória Souza e Paulo Sérgio _ Davi.mp4",
+			"title": "Davi",
+			"channel": "Vitória Souza e Paulo Sérgio",
+			"views": "**** visualizações",
+			"description": "Música oficial da Copa do Mundo 2010",
+			"thumbnail": "video9.png"
+		},
+		{
+			"id": "Video 000010 - Vitória Souza _ Livramento.mp4",
+			"title": "Livramento",
+			"channel": "Vitória Souza",
+			"views": "**** visualizações",
+			"description": "Música oficial da Copa do Mundo 2010",
+			"thumbnail": "video10.png"
+		},
+		{
+			"id": "Video 000011 - Vitória Lima _ Verdadeira Adoração.mp4",
+			"title": "Verdadeira Adoração",
+			"channel": "Vitória Lima",
+			"views": "**** visualizações",
+			"description": "Música oficial da Copa do Mundo 2010",
+			"thumbnail": "video11.png"
+		},
+		{
+			"id": "Video 000012 - Vitória Lima _ Eis-me Aqui.mp4",
+			"title": "Eis-me Aqui",
+			"channel": "Vitória Lima",
+			"views": "**** visualizações",
+			"description": "Música oficial da Copa do Mundo 2010",
+			"thumbnail": "video12.png"
+		},
+		{
+			"id": "Video 000013 - A Casa É Sua   Sou Casa _ Julliany Souza.mp4",
+			"title": "A Casa É Sua",
+			"channel": "Julliany Souza",
+			"views": "**** visualizações",
+			"description": "Música oficial da Copa do Mundo 2010",
+			"thumbnail": "video13.png"
+		},
+		{
+			"id": "Video 000014 - Acalma o Meu Coração _ Julliany Souza.mp4",
+			"title": "Acalma o Meu Coração",
+			"channel": "Julliany Souza",
+			"views": "**** visualizações",
+			"description": "Música oficial da Copa do Mundo 2010",
+			"thumbnail": "video14.png"
+		},
+		{
+			"id": "Video 000015 - ACENDE OUTRA VEZ┃JEFFERSON _ SUELLEN.mp4",
+			"title": "Acende Outra Vez",
+			"channel": "Jefferson e Suellen",
+			"views": "**** visualizações",
+			"description": "Música oficial da Copa do Mundo 2010",
+			"thumbnail": "video15.png"
+		},
+		{
+			"id": "Video 000016 - Advogado Fiel.mp4",
+			"title": "Advogado Fiel",
+			"channel": "",
+			"views": "**** visualizações",
+			"description": "Música oficial da Copa do Mundo 2010",
+			"thumbnail": "video16.png"
+		},
+		{
+			"id": "Video 000017 - Além do Rio Azul - Julia Vitória.mp4",
+			"title": "Além do Rio Azul",
+			"channel": "Julia Vitória",
+			"views": "**** visualizações",
+			"description": "Música oficial da Copa do Mundo 2010",
+			"thumbnail": "video17.jpg"
+		},
+		{
+			"id": "Video 000018 - Aline Barros - Digno é o Senhor.mp4",
+			"title": "Digno é o Senhor",
+			"channel": "Aline Barros",
+			"views": "**** visualizações",
+			"description": "Música oficial da Copa do Mundo 2010",
+			"thumbnail": "video18.jpg"
+		},
+		{
+			"id": "Video 000019 - Amanda Loyola_ Marcelo Markes - O Amor Me Amou.mp4",
+			"title": "O Amor Me Amou",
+			"channel": "Amanda Loyola e Marcelo Markes",
+			"views": "**** visualizações",
+			"description": "Música oficial da Copa do Mundo 2010",
+			"thumbnail": "video19.jpg"
+		},
+		{
+			"id": "Video 000020 - Amanda Wanessa - Tá Chorando Por Quê.mp4",
+			"title": "Tá Chorando Por Quê",
+			"channel": "Amanda Wanessa",
+			"views": "**** visualizações",
+			"description": "Música oficial da Copa do Mundo 2010",
+			"thumbnail": "video20.jpg"
 		}
 	]
   
