@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Uploader Pro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --border-color: #f0f0f0;
+            --film-border: #2c2c2c;
+        }
+
+        .video-container {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .thumbnail-preview {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            background: #000;
+            border: 15px solid #fff;
+            border-radius: 8px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        .thumbnail-preview::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border: 2px solid var(--border-color);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        #thumbnailCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .film-effect {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 3;
+            background: linear-gradient(to bottom, 
+                rgba(0,0,0,0.15) 0%, 
+                rgba(0,0,0,0) 20%, 
+                rgba(0,0,0,0) 80%, 
+                rgba(0,0,0,0.15) 100%);
+        }
+
+        .control-buttons .btn {
+            min-width: 180px;
+            margin: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .control-buttons .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <div class="card shadow-lg">
+            <div class="card-header bg-primary text-white py-3">
+                <h3 class="mb-0 text-center">🎥 Video Upload Manager</h3>
+            </div>
+            
+            <div class="card-body">
+                <div class="row g-4">
+                    <!-- Video Section -->
+                    <div class="col-lg-6">
+                        <div class="mb-4">
+                            <input type="file" id="videoInput" accept="video/*" class="form-control">
+                            <div class="form-text">Formatos suportados: MP4, AVI, MOV</div>
+                        </div>
+                        
+                        <div class="video-container">
+                            <video id="videoPreview" controls class="w-100"></video>
+                        </div>
+                    </div>
+
+                    <!-- Thumbnail Section -->
+                    <div class="col-lg-6">
+                        <div class="thumbnail-preview mb-4">
+                            <canvas id="thumbnailCanvas"></canvas>
+                            <div class="film-effect"></div>
+                        </div>
+                        
+                        <div class="control-buttons mb-4 text-center">
+                            <button id="captureThumbnail" class="btn btn-outline-primary">
+                                <i class="bi bi-camera"></i> Capturar Thumbnail
+                            </button>
+                            <button id="randomThumbnail" class="btn btn-outline-secondary">
+                                <i class="bi bi-shuffle"></i> Aleatorizar
+                            </button>
+                        </div>
+
+                        <!-- Metadata Form -->
+                        <form id="videoForm" class="needs-validation" novalidate>
+                            <div class="mb-3">
+                                <label class="form-label">📁 Nome do Arquivo</label>
+                                <input type="text" id="fileName" class="form-control" required readonly>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">🎵 Nome da Música</label>
+                                <input type="text" id="songName" class="form-control">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">🎤 Artista</label>
+                                <input type="text" id="artistName" class="form-control">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-success w-100 py-2">
+                                <i class="bi bi-cloud-upload"></i> Enviar para o Servidor
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const videoInput = document.getElementById('videoInput');
+        const videoPreview = document.getElementById('videoPreview');
+        const thumbnailCanvas = document.getElementById('thumbnailCanvas');
+        let currentVideoFile = null;
+
+        // Video Load Handler
+        videoInput.addEventListener('change', async function(e) {
+            const file = e.target.files[0];
+            currentVideoFile = file;
+            
+            videoPreview.src = URL.createObjectURL(file);
+            document.getElementById('fileName').value = file.name;
+
+            videoPreview.addEventListener('loadedmetadata', () => {
+                videoPreview.currentTime = Math.min(0.1, videoPreview.duration);
+            });
+
+            videoPreview.addEventListener('seeked', () => {
+                captureThumbnail();
+            });
+        });
+
+        // Thumbnail Capture Logic
+        function captureThumbnail() {
+            const ctx = thumbnailCanvas.getContext('2d');
+            const targetWidth = 1280;
+            const targetHeight = 720;
+            
+            thumbnailCanvas.width = targetWidth;
+            thumbnailCanvas.height = targetHeight;
+
+            const videoRatio = videoPreview.videoWidth / videoPreview.videoHeight;
+            const targetRatio = targetWidth / targetHeight;
+
+            let sx, sy, sw, sh;
+
+            if (videoRatio > targetRatio) {
+                sw = videoPreview.videoHeight * targetRatio;
+                sh = videoPreview.videoHeight;
+                sx = (videoPreview.videoWidth - sw) / 2;
+                sy = 0;
+            } else {
+                sw = videoPreview.videoWidth;
+                sh = videoPreview.videoWidth / targetRatio;
+                sx = 0;
+                sy = (videoPreview.videoHeight - sh) / 2;
+            }
+
+            ctx.drawImage(videoPreview, sx, sy, sw, sh, 0, 0, targetWidth, targetHeight);
+            addFilmEffect(ctx, targetWidth, targetHeight);
+        }
+
+        // Film Border Effect
+        function addFilmEffect(ctx, width, height) {
+            // Top and bottom bars
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
+            ctx.fillRect(0, 0, width, 35);
+            ctx.fillRect(0, height - 35, width, 35);
+
+            // Perforations
+            ctx.fillStyle = '#333';
+            const holeCount = Math.floor(width / 60);
+            for (let i = 0; i < holeCount; i++) {
+                const x = (width / (holeCount + 1)) * (i + 1);
+                ctx.beginPath();
+                ctx.arc(x, 17, 3, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.beginPath();
+                ctx.arc(x, height - 17, 3, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        // Random Thumbnail
+        document.getElementById('randomThumbnail').addEventListener('click', function(e) {
+            e.preventDefault();
+            if (!videoPreview.duration) return;
+
+            const randomTime = Math.random() * (videoPreview.duration - 1);
+            videoPreview.currentTime = Math.min(randomTime, videoPreview.duration - 0.1);
+        });
+
+        // Form Submission
+        $('#videoForm').submit(async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData();
+            formData.append('video', currentVideoFile);
+            formData.append('file_name', $('#fileName').val());
+            formData.append('song_name', $('#songName').val());
+            formData.append('artist_name', $('#artistName').val());
+
+            thumbnailCanvas.toBlob(async (blob) => {
+                formData.append('thumbnail', blob, 'thumbnail.jpg');
+
+                try {
+                    const response = await fetch('/api/upload-video', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    if (!response.ok) throw new Error(await response.text());
+                    
+                    const result = await response.json();
+                    alert('✅ Upload realizado com sucesso!');
+                    location.reload();
+                } catch (error) {
+                    console.error('Erro:', error);
+                    alert('❌ Erro ao enviar o vídeo: ' + error.message);
+                }
+            }, 'image/jpeg', 0.85);
+        });
+    </script>
+</body>
+</html>
