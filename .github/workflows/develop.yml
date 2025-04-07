@@ -1,0 +1,33 @@
+name: Deploy via FTP
+on:
+  push:
+    branches: [ "main" ]
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: FTP Deploy Incremental
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      with:
+        server: "ftp.markethubplace.com"
+        username: "markethubplace2"
+        password: "Markethubplace2@"
+        server-dir: "/public_html/fortalecendoafe/"
+        local-dir: "./"
+        method: "sync"
+
+    - name: Ajustar Permissões para 777
+      run: |
+        ftp -inv ${{ secrets.FTP_SERVER }} <<EOF
+        user ${{ secrets.FTP_USER }} ${{ secrets.FTP_PASSWORD }}
+        cd /public_html/fortalecendoafe/
+        chmod -R 777 .
+        bye
+        EOF
+      env:
+        FTP_SERVER: "ftp.markethubplace.com"
+        FTP_USER: "markethubplace2"
+        FTP_PASSWORD: "Markethubplace2@"
