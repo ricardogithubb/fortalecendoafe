@@ -310,7 +310,7 @@
                 formData.append('song_name', $('#songName').val());
                 formData.append('artist_name', $('#artistName').val());
 
-                xhr.open('POST', 'http://localhost:8000/api/upload-video');
+                xhr.open('POST', 'https://fortalecendoafe.markethubplace.com/VideoUpload_back/api/upload-video');
 
                 xhr.upload.addEventListener('progress', function(e) {
                     if (e.lengthComputable && !uploadCanceled) {
