@@ -371,7 +371,7 @@
                 localStorage.setItem(CACHE_KEY, []);
                 // Make API request
                 $.ajax({
-                    url: 'http://127.0.0.1:8000/api/videos',
+                    url: 'https://apittiktokplay.markethubplace.com/api/videos',
                     method: 'GET',
                     dataType: 'json',
                     success: function(data) {
@@ -534,7 +534,7 @@
                 deleteSpinner.removeClass('d-none');
                 
                 $.ajax({
-                    url: `http://127.0.0.1:8000/api/video/${video.id}`,
+                    url: `https://apittiktokplay.markethubplace.com/api/video/${video.id}`,
                     method: 'DELETE',
                     success: function() {
                         // Remove from cache

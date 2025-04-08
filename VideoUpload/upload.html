@@ -310,7 +310,7 @@
                 formData.append('song_name', $('#songName').val());
                 formData.append('artist_name', $('#artistName').val());
 
-                xhr.open('POST', 'http://127.0.0.1:8000/api/upload-video');
+                xhr.open('POST', 'https://apittiktokplay.markethubplace.com/api/upload-video');
 
                 xhr.upload.addEventListener('progress', function(e) {
                     if (e.lengthComputable && !uploadCanceled) {

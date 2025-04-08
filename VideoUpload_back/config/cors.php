@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://127.0.0.1:5500','http://127.0.0.1:8000','https://fortalecendoafe.markethubplace.com/VideoUpload'],
+    'allowed_origins' => ['http://127.0.0.1:5500','https://fortalecendoafe.markethubplace.com/TiktokPlay','https://fortalecendoafe.markethubplace.com/VideoUpload'],
 
     'allowed_origins_patterns' => [],
 
