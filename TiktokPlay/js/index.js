@@ -1,5 +1,93 @@
 $(document).ready(async function () {
 
+    
+    // Configurações
+    const API_URL = 'https://apittiktokplay.markethubplace.com/api/videos'; // Substitua pelo seu endpoint
+    const CACHE_KEY = 'videos_cache';
+    const CACHE_EXPIRY = 5 * 60 * 1000; // 5 minutos de cache
+    const maxRetries = 1;
+    
+    // Variável para armazenar os vídeos
+    let videosData = [];
+    
+    // Função para carregar os vídeos
+    function loadVideos() {
+        return new Promise((resolve, reject) => {
+            // Verificar cache primeiro
+            const cachedData = getCachedVideos();
+            if (cachedData) {
+                videosData = cachedData;
+                resolve(videosData);
+                return;
+            }
+            
+            // Fazer requisição para a API
+            $.ajax({
+                url: API_URL,
+                method: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    // Armazenar em cache e na variável
+                    cacheVideos(data);
+                    videosData = data;
+                    console.log('Dados carregados da API:', videosData);
+                    resolve(videosData);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Erro ao carregar vídeos:', error);
+                    reject(error);
+                }
+            });
+        });
+    }
+    
+    // Funções auxiliares de cache
+    function cacheVideos(data) {
+        const cache = {
+            timestamp: Date.now(),
+            data: data
+        };
+        localStorage.setItem(CACHE_KEY, JSON.stringify(cache));
+    }
+    
+    function getCachedVideos() {
+        const cache = localStorage.getItem(CACHE_KEY);
+        if (!cache) return null;
+        
+        try {
+            const parsedCache = JSON.parse(cache);
+            const cacheAge = Date.now() - parsedCache.timestamp;
+            
+            if (cacheAge < CACHE_EXPIRY) {
+                return parsedCache.data;
+            }
+            
+            // Cache expirado - remover
+            localStorage.removeItem(CACHE_KEY);
+            return null;
+        } catch (e) {
+            console.error("Erro ao analisar cache", e);
+            return null;
+        }
+    }
+    
+    // Inicializar carregamento
+    loadVideos()
+        .then(data => {
+            console.log('Vídeos disponíveis na variável videosData:', videosData);
+            // Aqui você pode usar os dados como quiser
+            // Exemplo: processarDados(videosData);
+        })
+        .catch(error => {
+            console.error('Falha ao carregar vídeos:', error);
+        });
+
+
+        // loadVideos().then(() => {
+        //     console.log('Total de vídeos:', videosData.length);
+        //     // Faça o que quiser com os dados aqui
+        // });
+
     var dadosJSON = {};
 
     async function carregarDadosJson() {
@@ -19,7 +107,8 @@ $(document).ready(async function () {
     const dados = await carregarDadosJson();
     
     // Dados dos vídeos
-    const videos = dados.louvores;
+    const videos = videosData; // dados.louvores;
+
     // Exemplo de uso:
 
     const playlist = [];
@@ -29,7 +118,7 @@ $(document).ready(async function () {
     }
 
     videos.forEach(video => {
-        addSong(video.title, video.artist, 'imagem/' + video.thumbnail, 'videos/' + video.id);
+        addSong(video.song_name, video.artist_name,video.capa_url,video.video_url);
     });
     
     const jsonPlaylist = JSON.stringify(playlist, null, 4);
@@ -96,6 +185,7 @@ $(document).ready(async function () {
 
     // Play first video on load
     $('.playlist-item').first().click();
+
     
 
 });
