@@ -17,6 +17,11 @@ use App\Http\Controllers\VideoController;
 
 Route::post('/upload-video', [VideoController::class, 'store']);
 
+Route::get('/videos', [VideoController::class, 'index']);
+
+Route::delete('/video/{id}', [VideoController::class, 'destroy']);
+
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

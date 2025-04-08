@@ -14,6 +14,7 @@ class Video extends Model
         'song_name',
         'artist_name',
         'video_url',
-        'thumbnail_url'
+        'capa_url',
+        'video_num'
     ];
 }

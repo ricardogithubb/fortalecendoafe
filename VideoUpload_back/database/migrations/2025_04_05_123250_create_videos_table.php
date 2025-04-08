@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('song_name')->nullable();
             $table->string('artist_name')->nullable();
             $table->string('video_url');
-            $table->string('thumbnail_url');
+            $table->string('capa_url');
+            $table->string('video_num');
             $table->timestamps();
         });
     }
