@@ -45,9 +45,9 @@ class VideoController extends Controller
 
             $request->file('thumbnail')->move($externalImagePath, $thumbnailFileName);
 
-            $videoPath = url('http://127.0.0.1:5500/TiktokPlay/videos/' . $videoFileName);
+            $videoPath = url('https://fortalecendoafe.markethubplace.com/TiktokPlay/videos/' . $videoFileName);
 
-            $thumbnailPath = url('http://127.0.0.1:5500/TiktokPlay/imagem/' . $thumbnailFileName);
+            $thumbnailPath = url('https://fortalecendoafe.markethubplace.com/TiktokPlay/imagem/' . $thumbnailFileName);
 
             // Cria o modelo do vídeo
             $video = new \App\Models\Video([
