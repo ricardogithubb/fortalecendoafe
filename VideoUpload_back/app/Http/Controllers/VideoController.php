@@ -49,6 +49,11 @@ class VideoController extends Controller
 
             $thumbnailPath = url('https://fortalecendoafe.markethubplace.com/TiktokPlay/imagem/' . $thumbnailFileName);
 
+            //buscar numeros de registros em video
+            $videos = \App\Models\Video::all();
+            $numVideos = $videos->count();
+            $numVideos = $numVideos + 1;
+
             // Cria o modelo do vídeo
             $video = new \App\Models\Video([
                 'file_name' => $videoFileName,
@@ -56,7 +61,7 @@ class VideoController extends Controller
                 'artist_name' => $validated['artist_name'],
                 'video_url' => url($videoPath),
                 'capa_url' => url($thumbnailPath),
-                'video_num' => 'Video ' . $timestamp
+                'video_num' => 'Video ' . $numVideos
             ]);
 
             $video->save();
