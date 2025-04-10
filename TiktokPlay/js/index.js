@@ -118,7 +118,7 @@ $(document).ready(async function () {
     }
 
     videos.forEach(video => {
-        addSong(video.song_name+" - "+video.video_num, video.artist_name,video.capa_url,video.video_url);
+        addSong(video.song_name, video.artist_name+" | "+video.video_num,video.capa_url,video.video_url);
     });
     
     const jsonPlaylist = JSON.stringify(playlist, null, 4);
