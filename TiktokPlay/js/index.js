@@ -109,6 +109,9 @@ $(document).ready(async function () {
     // Dados dos vídeos
     const videos = videosData; // dados.louvores;
 
+    //order em ordem decrescene
+    videos.sort((a, b) => b.video_num - a.video_num);
+
     // Exemplo de uso:
 
     const playlist = [];
