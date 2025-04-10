@@ -2,8 +2,12 @@ html, body {
     height: 100%;
 }
 
-.h-40 {
-    height: 40%;
+.h-45 {
+    height: 45%;
+}
+
+.h-55 {
+    height: 55%;
 }
 
 body {
