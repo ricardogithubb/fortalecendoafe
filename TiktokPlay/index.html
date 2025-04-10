@@ -42,6 +42,7 @@
         setTimeout(() => {
             if (!sessionStorage.getItem('pageRefreshed')) {
                 sessionStorage.setItem('pageRefreshed', 'true');
+                alert('Pagina recarregada!');
                 location.reload();
             }
         }, 3000);

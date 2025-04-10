@@ -1,5 +1,8 @@
+  
+
 html, body {
     height: 100%;
+    overflow: hidden;
 }
 
 .h-45 {
@@ -60,4 +63,14 @@ body {
 .artist-name {
     color: #888 !important;
     font-size: 0.9em;
+}
+
+.playlist {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Suporte para scroll suave em iOS */
+} 
+
+.col-lg-4 {
+    height: 60vh;
+    overflow-y: auto;
 }
