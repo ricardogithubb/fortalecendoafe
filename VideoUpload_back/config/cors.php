@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://127.0.0.1:5500','https://fortalecendoafe.markethubplace.com'],
+    'allowed_origins' => ['http://127.0.0.1:5500','https://fortalecendoafe.markethubplace.com','https://ricardogithubb.github.io/fortalecendoafe'],
 
     'allowed_origins_patterns' => [],
 
