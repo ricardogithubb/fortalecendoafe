@@ -11,7 +11,7 @@ $(document).ready(async function () {
     let videosData = [];
     
     // Função para carregar os vídeos
-    function loadVideos() {
+    async function loadVideos() {
         return new Promise((resolve, reject) => {
             // Verificar cache primeiro
             const cachedData = getCachedVideos();
@@ -72,15 +72,15 @@ $(document).ready(async function () {
     }
     
     // Inicializar carregamento
-    loadVideos()
-        .then(data => {
-            console.log('Vídeos disponíveis na variável videosData:', videosData);
-            // Aqui você pode usar os dados como quiser
-            // Exemplo: processarDados(videosData);
-        })
-        .catch(error => {
-            console.error('Falha ao carregar vídeos:', error);
-        });
+    await loadVideos()
+            .then(data => {
+                console.log('Vídeos disponíveis na variável videosData:', videosData);
+                // Aqui você pode usar os dados como quiser
+                // Exemplo: processarDados(videosData);
+            })
+            .catch(error => {
+                console.error('Falha ao carregar vídeos:', error);
+            });
 
 
         // loadVideos().then(() => {
