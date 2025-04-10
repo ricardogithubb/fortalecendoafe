@@ -36,5 +36,16 @@
 
     <!-- JavaScript no final do body para melhor performance -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+   
+    <!-- Script para dar refresh 1 vez após 3 segundos -->
+    <script>
+        setTimeout(() => {
+            if (!sessionStorage.getItem('pageRefreshed')) {
+                sessionStorage.setItem('pageRefreshed', 'true');
+                alert('Obrigado por assistir nosso video!');
+                location.reload();
+            }
+        }, 3000);
+    </script>
 </body>
 </html>
