@@ -42,7 +42,6 @@
         setTimeout(() => {
             if (!sessionStorage.getItem('pageRefreshed')) {
                 sessionStorage.setItem('pageRefreshed', 'true');
-                alert('Obrigado por assistir nosso video!');
                 location.reload();
             }
         }, 3000);
