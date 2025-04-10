@@ -85,7 +85,7 @@ class VideoController extends Controller
     //listar os videos
     public function index()
     {
-        $videos = \App\Models\Video::all()->orderBy('id', 'desc');
+        $videos = \App\Models\Video::all();
         return response()->json($videos);
     }
 
