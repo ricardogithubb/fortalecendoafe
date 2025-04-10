@@ -19,14 +19,14 @@
                         <div class="progress-bar" id="progress"></div>
                     </div>
                     
-                    <div class="p-3 bg-dark">
+                    <div class="p-3 bg-dark video-info-sticky">
                         <h4 id="video-title" class="mb-1"></h4>
                         <p id="video-artist" class="text-secondary m-0 artist-name"></p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-4 overflow-auto h-55">
+            <div class="col-lg-4 h-55">
                 <div class="playlist h-100" id="playlist">
                     <!-- Playlist items will be dynamically added here -->
                 </div>
@@ -42,7 +42,6 @@
         setTimeout(() => {
             if (!sessionStorage.getItem('pageRefreshed')) {
                 sessionStorage.setItem('pageRefreshed', 'true');
-                alert('Pagina recarregada!');
                 location.reload();
             }
         }, 3000);

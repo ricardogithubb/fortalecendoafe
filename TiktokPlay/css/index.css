@@ -2,7 +2,6 @@
 
 html, body {
     height: 100%;
-    overflow: hidden;
 }
 
 .h-45 {
@@ -65,12 +64,16 @@ body {
     font-size: 0.9em;
 }
 
-.playlist {
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch; /* Suporte para scroll suave em iOS */
-} 
+.video-container {
+    position: sticky;
+    top: 0;
+    z-index: 1020; /* acima da maioria dos elementos padrão */
+    background-color: #000; /* garante que o fundo não fique transparente */
+}
 
-.col-lg-4 {
-    height: 60vh;
-    overflow-y: auto;
+.video-info-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    background-color: #111; /* ou o fundo que preferir */
 }
