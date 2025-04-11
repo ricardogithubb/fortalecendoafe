@@ -164,6 +164,10 @@ $(document).ready(async function () {
         
         $('.playlist-item').removeClass('active');
         $(this).addClass('active');
+        //voltar o scroll para o inicio da pagina
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
     });
 
     // Update progress bar
