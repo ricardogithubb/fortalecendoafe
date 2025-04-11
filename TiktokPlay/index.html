@@ -42,7 +42,6 @@
         setTimeout(() => {
             if (!sessionStorage.getItem('pageRefreshed')) {
                 sessionStorage.setItem('pageRefreshed', 'true');
-                alert('🎉 Bem-vindo ao Modern Video Player!');
                 location.reload();
             }
         }, 3000);
